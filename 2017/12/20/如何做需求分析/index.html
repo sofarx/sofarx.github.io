@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="产品," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="产品的构思初期，我们会罗列尽可能多需求，也会收集到很多需求。但有些需求是伪需求，有些需求也不具备实现价值，那我们如何做判断呢？ 每天有无数产品诞生，也有无数产品陨落，很多时候会谈到一个原因，没有把握住用户需求，吸引不了用户。那如何把握住用户需求呢？ 各种各样的需求，如何毫无克制地加载功能去满足用户，最终也会导致产品变得臃肿和失去核心定位。那怎么提炼呢？这也就是这篇文章的思考主题，我们如何做需求分">
+<meta name="keywords" content="产品">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何做需求分析">
+<meta property="og:url" content="http://yoursite.com/2017/12/20/如何做需求分析/index.html">
+<meta property="og:site_name" content="周勇发的共享空间">
+<meta property="og:description" content="产品的构思初期，我们会罗列尽可能多需求，也会收集到很多需求。但有些需求是伪需求，有些需求也不具备实现价值，那我们如何做判断呢？ 每天有无数产品诞生，也有无数产品陨落，很多时候会谈到一个原因，没有把握住用户需求，吸引不了用户。那如何把握住用户需求呢？ 各种各样的需求，如何毫无克制地加载功能去满足用户，最终也会导致产品变得臃肿和失去核心定位。那怎么提炼呢？这也就是这篇文章的思考主题，我们如何做需求分">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1fmnnvxzu9hj30p00dwh68.jpg">
+<meta property="og:updated_time" content="2017-12-20T15:48:31.650Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何做需求分析">
+<meta name="twitter:description" content="产品的构思初期，我们会罗列尽可能多需求，也会收集到很多需求。但有些需求是伪需求，有些需求也不具备实现价值，那我们如何做判断呢？ 每天有无数产品诞生，也有无数产品陨落，很多时候会谈到一个原因，没有把握住用户需求，吸引不了用户。那如何把握住用户需求呢？ 各种各样的需求，如何毫无克制地加载功能去满足用户，最终也会导致产品变得臃肿和失去核心定位。那怎么提炼呢？这也就是这篇文章的思考主题，我们如何做需求分">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1fmnnvxzu9hj30p00dwh68.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/20/如何做需求分析/"/>
+
+
+
+
+
+  <title>如何做需求分析 | 周勇发的共享空间</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">周勇发的共享空间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/20/如何做需求分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Afazhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/zyf.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周勇发的共享空间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">如何做需求分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T23:46:00+08:00">
+                2017-12-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fmnnvxzu9hj30p00dwh68.jpg" alt=""></p>
+<pre><code>产品的构思初期，我们会罗列尽可能多需求，也会收集到很多需求。但有些需求是伪需求，有些需求也不具备实现价值，那我们如何做判断呢？
+每天有无数产品诞生，也有无数产品陨落，很多时候会谈到一个原因，没有把握住用户需求，吸引不了用户。那如何把握住用户需求呢？
+各种各样的需求，如何毫无克制地加载功能去满足用户，最终也会导致产品变得臃肿和失去核心定位。那怎么提炼呢？这也就是这篇文章的思考主题，我们如何做需求分析？
+</code></pre><a id="more"></a>
+<h2 id="1-用户需求与产品需求"><a href="#1-用户需求与产品需求" class="headerlink" title="1. 用户需求与产品需求"></a>1. 用户需求与产品需求</h2><blockquote>
+<p>用户需求是用户从自身角度出发，自以为的需求。<br>    用户经常提出的需求，从他们角度而言都是正确的，但更多是从自身情况考虑，对于产品的某个功能有自己的期望，但对产品定位、设计的依据等情况不了解，他们的建议也许并不是该功能的最好实现方式，也就不足以直接作为产品规划的直接依据。<br>产品需求是提炼分析用户真实需求，并符合产品定位的解决方案。<br>    解决方案可以理解为一个产品，一个功能或服务，一个活动，一个机制。<br>需求分析：从用户提出的需求出发，挖掘用户内心真正的目标，并转为为产品需求的过程。<br>    我们不能简单地看用户需求，而是应该去挖掘用户产生这个需求时，其心里是什么驱动着用户。所以，更应该思考，需求分析的过程，是如何把用户需求转为为产品需求，中间的纽带是什么？什么可以把产品需求转化为用户需求？</p>
+<h2 id="2-人性"><a href="#2-人性" class="headerlink" title="2. 人性"></a>2. 人性</h2><pre><code>在想如何把用户需求转化为产品需求的中间纽带是什么，不禁要问一个问题，用户需求是怎么产生的？我们只用把原因研究清楚了，才有可能通过产品需求去迎合用户需求。我们追本溯源，用户的需求或者说是欲望究竟缘何而生？分析人性这个问题有两个理论思维可以给我们切入去思考。
+</code></pre><h3 id="2-1-马斯洛需求理论"><a href="#2-1-马斯洛需求理论" class="headerlink" title="2.1 马斯洛需求理论"></a>2.1 马斯洛需求理论</h3><pre><code>马斯洛需求理论出自经典著作《人的动机理论》的马斯洛需求理论，它阐述了人类的需求源于五类，即生理需求、安全需求、社交需求、尊重需求和自我实现需求。
+人类最基本生理需求是衣食住行，若无法满足，人类无法生存。这也是我们提及最多的用户刚需，每一天都离不开，也就蕴含着巨大的市场空间，是众多创业公司和巨头一直抢占的各个山头。
+随之产生的是安全需求，希望生活有所保障，避免被物理伤害。这是医疗人身保障等社会基础设施的建设，是“互联网+”正在升级的主要领域。
+两个需求得到满足后个体会产生友谊、爱情、亲情等各种感情诉求，也渴望成为集体的一部分，几乎没有人希望过着孤独，不与外界产生联系的生活。这块目前最主要便是企鹅帝国的两大关系链产品。
+随后希望被人尊重，得到认可和赞赏，名誉、声望和地位的尊重需求，这种需求很少得到充分满足。
+自我实现是最高层次的一种需求，实现个人抱负、理想、价值的需要。
+</code></pre><h3 id="2-2七宗罪"><a href="#2-2七宗罪" class="headerlink" title="2.2七宗罪"></a>2.2七宗罪</h3><p>七宗罪在圣经中，人类有七宗罪：淫欲、贪食、贪婪、懒惰、暴怒、妒忌、 傲慢。<br>    淫欲，情色网站是被中国政府和法律所禁止的，可依旧屡禁不止的，可想是多么痛的痛点需求呀。典型代表有陌陌、快播、微信的摇一摇、附近的人、YY美女主播等。<br>    贪食，每个人都有一个胃，每天三餐，美味和食物总对人有着强大的诱惑力，美味分享生活分享类的网站，正是满足了饕餮的特性。<br>    贪婪，总是渴求得更多，永远不会满足，于是淘宝的双十一，京东一轮又一轮的促销，各种团队促销优惠卷红包不停。<br>    懒惰，这是互联网原则，互联网的存在就是让我们能更“懒”地完成事情，世界为“懒”人所创造，科技为“懒”人所进步。暴怒，网络游戏的杀戮与游戏装备热卖，玩的就是人性暴怒的本质。<br>    妒忌，网络是个分享的社会，一个贫富共通的平台，于是在网络上总凝聚了不同的声音，总有人在上面咒骂这个社会，总有人在抱怨着不满意，而这些均由妒忌所生。<br>    傲慢，亦是虚荣，分享有时是快乐的，而满足虚荣有时也能产生快感，某些事物从不产生实际价值，只是一份虚荣心，比如QQ秀、各种钻、微博、朋友圈晒、点赞等。<br>一款好的产品，一定是迎合人性的。<br>    张小龙也表示把握人性是一款产品很重要的一个环节，知道用户内心最需要什么，才能真正做出让用户喜欢的产品，当然有些东西会突破道德底线，甚至可能会触犯法律，总之既要满足人内心的欲望，又要让产品生存下去，所以打擦边球很重要，这也是一个度的控制。</p>
+<h2 id="3-用户动机"><a href="#3-用户动机" class="headerlink" title="3.用户动机"></a>3.用户动机</h2><pre><code>用户的底层欲望就是源于这些人性，而人性产生的欲望，在不同的环境中，因不同的形式、不同的行为之下，会产生各种各样动机，想要达到某种目标，而产品需求，正是迎合用户的动机，来帮助用户更好地实现目标。
+被引用最多的一个例子，便是福特汽车创始人 - 亨利福特说的：
+</code></pre><p>“如果听用户的，我们根本造不出汽车来，用户就是需要一匹快马。”<br>    其实，用户究竟需要一匹马还是一辆车，就是需要分析用户情境之下的动机是什么？如果是赛马想获得成绩，那确实需要一匹更快的马；如果是想更快地去另一个地方，汽车就是更好地满足用户的需求。在挖掘用户动机之时，就可以尝试判断是伪需求还是真需求。</p>
+<h2 id="4-如何挖掘用户动机？"><a href="#4-如何挖掘用户动机？" class="headerlink" title="4.如何挖掘用户动机？"></a>4.如何挖掘用户动机？</h2><pre><code>如果只是看需求和产品本身，是很难看出产品设计背后逻辑，如果放到场景里去，放到人和产品的交互里去，可以更好地看出产品设计的奥妙在哪里。
+用户的动机会被很当时环境下的复杂因素所影响，这是非常考验用户研究和产品经理的硬本事。但我们也可以尝试从几个关键因素来进行场景分析。
+基于什么环境：地铁/办公室/室内/公共场合/走路/夜晚/户外......深入情景周围的细节中去。
+基于什么用户：具备什么特征，比如身份、收入、区域.....
+基于什么行为：行为或操作流程，比如购物流程、操作习惯、行为认知.......
+**场景分析也就是需要考虑具体什么环境（时间、地点、情境）什么类型用户的什么动机，想达到什么目标，以及人与人的关系。**
+如实地记录下来，如果偏差或缺乏信息，之后的分析就会有所偏差。
+可能还有辅以用户访谈、问卷调查等各种用户调研方法，进行信息的收集和补充。基于这些分析出场景中对用户动机和完成目标真正起作用的因素，而后转换为产品语言描述产品需求。
+</code></pre><h2 id="5-如何筛选需求？"><a href="#5-如何筛选需求？" class="headerlink" title="5.如何筛选需求？"></a>5.如何筛选需求？</h2><pre><code>前面说到用户需求只是用户自以为的需求，不够专业，而且有时用户说的并非心中所想，也可能不会表达内心真实需求。
+所以，在筛选需求的时候，除了需要挖掘用户动机寻找真实需求的同时，还需要考虑一下几点：
+该用户是否为目标用户：如果不是产品针对的目标用户，其建议或需求的参考价值可能没那么大。
+该需求是否符合产品定位：该需求的满足可能会影响产品的核心服务，破坏用户体验。
+该需求是否能实现：评估这个需求需要多少开发资源或运营能力，价值有多大？
+在考虑需求价值时候，可以从四个维度考虑：
+</code></pre><p>广度：该需求的受众面有多大？<br>频率：该需求的使用频露是以日/周/月为周期？<br>强度：该需求对用户有多强烈需要？<br>时机：该需求是否符合产品的规划，当下的环境？</p>
+</blockquote>
+<p><strong>“满足需求的产品”与“让用户尖叫的产品”之间，区别就在于对人性的把握。</strong></p>
+<p>作者：小徐同学<br>链接：<a href="https://www.zhihu.com/question/20407032/answer/55674574" target="_blank" rel="noopener">https://www.zhihu.com/question/20407032/answer/55674574</a><br>来源：知乎</p>
+<p>#商业短租空间</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/qrcode.png" alt="Afazhou wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的二维码，查看我的电子名片！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/产品/" rel="tag"># 产品</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/09/WordPress-和继承者们/" rel="next" title="WordPress 和继承者们">
+                <i class="fa fa-chevron-left"></i> WordPress 和继承者们
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/zyf.jpg"
+               alt="Afazhou" />
+          <p class="site-author-name" itemprop="name">Afazhou</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sofarx" target="_blank" title="GitHub:">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      GitHub:
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/sofarx" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="zyf@songfu.com" target="_blank" title="E-mail">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      E-mail
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.songfu.com/" title="送福" target="_blank">送福</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.weixinapp8.com/" title="红柑" target="_blank">红柑</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-用户需求与产品需求"><span class="nav-number">1.</span> <span class="nav-text"><a href="#1-&#x7528;&#x6237;&#x9700;&#x6C42;&#x4E0E;&#x4EA7;&#x54C1;&#x9700;&#x6C42;" class="headerlink" title="1. &#x7528;&#x6237;&#x9700;&#x6C42;&#x4E0E;&#x4EA7;&#x54C1;&#x9700;&#x6C42;"></a>1. &#x7528;&#x6237;&#x9700;&#x6C42;&#x4E0E;&#x4EA7;&#x54C1;&#x9700;&#x6C42;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-人性"><span class="nav-number">2.</span> <span class="nav-text"><a href="#2-&#x4EBA;&#x6027;" class="headerlink" title="2. &#x4EBA;&#x6027;"></a>2. &#x4EBA;&#x6027;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-马斯洛需求理论"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#2-1-&#x9A6C;&#x65AF;&#x6D1B;&#x9700;&#x6C42;&#x7406;&#x8BBA;" class="headerlink" title="2.1 &#x9A6C;&#x65AF;&#x6D1B;&#x9700;&#x6C42;&#x7406;&#x8BBA;"></a>2.1 &#x9A6C;&#x65AF;&#x6D1B;&#x9700;&#x6C42;&#x7406;&#x8BBA;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2七宗罪"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#2-2&#x4E03;&#x5B97;&#x7F6A;" class="headerlink" title="2.2&#x4E03;&#x5B97;&#x7F6A;"></a>2.2&#x4E03;&#x5B97;&#x7F6A;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-用户动机"><span class="nav-number">3.</span> <span class="nav-text"><a href="#3-&#x7528;&#x6237;&#x52A8;&#x673A;" class="headerlink" title="3.&#x7528;&#x6237;&#x52A8;&#x673A;"></a>3.&#x7528;&#x6237;&#x52A8;&#x673A;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-如何挖掘用户动机？"><span class="nav-number">4.</span> <span class="nav-text"><a href="#4-&#x5982;&#x4F55;&#x6316;&#x6398;&#x7528;&#x6237;&#x52A8;&#x673A;&#xFF1F;" class="headerlink" title="4.&#x5982;&#x4F55;&#x6316;&#x6398;&#x7528;&#x6237;&#x52A8;&#x673A;&#xFF1F;"></a>4.&#x5982;&#x4F55;&#x6316;&#x6398;&#x7528;&#x6237;&#x52A8;&#x673A;&#xFF1F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-如何筛选需求？"><span class="nav-number">5.</span> <span class="nav-text"><a href="#5-&#x5982;&#x4F55;&#x7B5B;&#x9009;&#x9700;&#x6C42;&#xFF1F;" class="headerlink" title="5.&#x5982;&#x4F55;&#x7B5B;&#x9009;&#x9700;&#x6C42;&#xFF1F;"></a>5.&#x5982;&#x4F55;&#x7B5B;&#x9009;&#x9700;&#x6C42;&#xFF1F;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Afazhou</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
