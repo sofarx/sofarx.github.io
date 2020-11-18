@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？ | 阿发的Wiki</title><meta name="description" content="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？"><meta name="keywords" content="mac,bootcamp,oculus,quest2,VR,SteamVR"><meta name="author" content="Afazhou"><meta name="copyright" content="Afazhou"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/favicon.jpg"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？"><meta name="twitter:description" content="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png"><meta property="og:type" content="article"><meta property="og:title" content="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？"><meta property="og:url" content="http://afa.wiki/article/2020/11/9c26c249"><meta property="og:site_name" content="阿发的Wiki"><meta property="og:description" content="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'true'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://afa.wiki/article/2020/11/9c26c249"><link rel="next" title="电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活" href="/http:/afa.wiki/article/2019/12/70f858e5.html"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"http://afa.wiki/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'false',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  copyright: undefined,
+  copy_copyright_js: false,
+  ClickShowText: undefined,
+  medium_zoom: 'false',
+  Snackbar: undefined
+  
+}</script></head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">阿发的Wiki</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div></span><span class="pull_right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">7</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">9</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div></div></div><div id="body-wrap"><div id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png)"><div id="post-info"><div id="post-title"><div class="posttitle">入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-11-18<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-11-18</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/game/">game</a></span><div class="post-meta-wordcount"><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h2 id="一、为什么要入手VR设备？"><a href="#一、为什么要入手VR设备？" class="headerlink" title="一、为什么要入手VR设备？"></a>一、为什么要入手VR设备？</h2><pre><code>双十一前，闲着刷即刻APP的我，突然看到有即友晒新入手的数码产品“Oculus quest2”，以前就听闻过oculus quest的大名，想不到现在出了第二代，而且价格比上一代还低，刷了视频博主、贴吧、知乎、微博关于oculus quest2的评价，无论从处理器、屏幕、软件、价格，各个方面综合起来最优秀、划算。一致评价为目前最值得入手的VR设备。心仪《 Half-life Alyx》大作很久玩不到的我，无脑的准备入手设备了。</code></pre><p>2020年第四季度，VR眼镜技术成熟可以入手了。<br><img alt="86FCF84FAA954CB9A2B5F8FAAF92BE65.png" data-src="http://images.weixinapp.cc/FlXYf6OGnziVoGHq6yrFeai8Dx3O" class="lazyload"></p>
+<h3 id="怎么购买Oculus-Quest2？"><a href="#怎么购买Oculus-Quest2？" class="headerlink" title="怎么购买Oculus Quest2？"></a>怎么购买Oculus Quest2？</h3><pre><code>Oculus早被Facebook收购，所以在国内发行是不太可能的，直接上美国亚马逊、日本亚马逊搜索对比，第一时间就入手了256G版的Oculus quest2；经过一个礼拜的漫长等待，DHL从美国经香港-进入广州海关的范围。这里要插一句，习惯了国内电商平台次日即达的超高速服务，不对比不知道再，等一个多礼拜才能拿到海淘产品是那么痛苦的。</code></pre><p><img alt="9680C3243AAE400685C3609DF3DB95C5.png" data-src="http://images.weixinapp.cc/FlFvGMUPu4ezudwk5sqQzRJXzCX4" class="lazyload"></p>
+<pre><code>Oculus quest2到手之后，这才是一系列折腾的开始。</code></pre><h2 id="购买这个VR眼镜我要实现目的："><a href="#购买这个VR眼镜我要实现目的：" class="headerlink" title="购买这个VR眼镜我要实现目的："></a>购买这个VR眼镜我要实现目的：</h2><ol>
+<li>在quest2上单机尝鲜，无线畅玩VR游戏，比如Beat Saber（节奏光剑）；</li>
+<li>在quest2上看全景视频，比如Youtube VR 等；</li>
+<li>无线串流/有线链接PC，玩SteamVR游戏大作，比如Half-Life：ALyx；</li>
+<li>录制VR体验视频，做自己业务的宣传（无中生有的正当理由🐶）。</li>
+</ol>
+<h2 id="设备激活会遇到的坑："><a href="#设备激活会遇到的坑：" class="headerlink" title="设备激活会遇到的坑："></a>设备激活会遇到的坑：</h2><ol>
+<li>设备激活要链接国际互联网（魔法上网），日常使用也要链接facebook服务器；</li>
+<li>要注册Facebook激活；要绑定信用卡；新注册的faccebook账号90%都被机器人ban掉，要人工申请审核。</li>
+<li>成功激活后，首次更新系统，除了魔法上网外，还需要额外的DNS设置，不然卡着一点也不动，这个得找一个叫虚幻岛的公众号才能解决；<br>这是每个人都会遇到的问题，相信很多人购买前会找到购买指引，或者淘宝上的商家都会提供相关的服务，。<br>以上的几个坑我自己还是比较快搞掂了。接下来想要链接PC上玩Steam VR大作又遇到了不少问题；<h2 id="Macbook-Pro-怎么畅玩SteamVR游戏？"><a href="#Macbook-Pro-怎么畅玩SteamVR游戏？" class="headerlink" title="Macbook Pro 怎么畅玩SteamVR游戏？"></a>Macbook Pro 怎么畅玩SteamVR游戏？</h2>手上的设备列表：</li>
+<li>MacBookpro2016 13寸 with touchbar，256G硬盘，16G内存</li>
+<li>Aorus gaming Box显卡坞，Gtx 1070显卡</li>
+<li>三星T5 500G外置硬盘；</li>
+<li>Oculus quest 2 ，256G内存</li>
+<li>红米路由器RM2100</li>
+<li>27寸Dell显示器；</li>
+</ol>
+<h3 id="第一步，路由器先刷个固件："><a href="#第一步，路由器先刷个固件：" class="headerlink" title="第一步，路由器先刷个固件："></a>第一步，路由器先刷个固件：</h3><blockquote>
+<p><a href="https://post.smzdm.com/p/aoo85457/" target="_blank" rel="noopener">红米AC2100刷机Padavan固件全图解，超超超详细_路由器_什么值得买</a></p>
+</blockquote>
+<h3 id="第二步，MacBookpro-安装Bootcamp-win10系统，并启用EGPU外置显卡，参考我写的文章"><a href="#第二步，MacBookpro-安装Bootcamp-win10系统，并启用EGPU外置显卡，参考我写的文章" class="headerlink" title="第二步，MacBookpro 安装Bootcamp win10系统，并启用EGPU外置显卡，参考我写的文章"></a>第二步，MacBookpro 安装Bootcamp win10系统，并启用EGPU外置显卡，参考我写的文章</h3><blockquote>
+<p><a href="http://afa.wiki/article/2019/12/1b4d3ed7.html">怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏 | 阿发的Wiki</a><br>由于256G硬盘太小，装bootcamp会遇到分区空间大小限制，我怎么缩减，macos只给我分48G的空间给windows分区；这个要注意，这个空间大小会严重影响SteamVR是否能安装Oculus 的驱动，驱动要求有16G左右空间来安装；</p>
+</blockquote>
+<h3 id="第三步：安装Oculus-Home软件；"><a href="#第三步：安装Oculus-Home软件；" class="headerlink" title="第三步：安装Oculus Home软件；"></a>第三步：安装Oculus Home软件；</h3><p>成功安装win10之后，安装bootcamp驱动，能链接上网后,显卡驱动也先不理，先想办法在系统最小的时候安装Oculus Pc上的驱动：Oculus<br>Home,按照以下教程下载离线包后，在C盘开始安装。</p>
+<blockquote>
+<p><a href="https://shimo.im/docs/vC6ckJKRJQJ6gcKy/read" target="_blank" rel="noopener">Oculus离线包+SideQuest+ALVR</a><br>（这里会有人问，为啥这么急，这软件装外置硬盘上不就可以了吗？回答是否定的，这里我卡了好几天，怎么都装不进去，这个驱动只能装在NTFS格式的系统盘，外置硬盘也不行，超变态的；）</p>
+</blockquote>
+<h3 id="第四部，安装显卡驱动、安装Steam-、安装steamVR套件；"><a href="#第四部，安装显卡驱动、安装Steam-、安装steamVR套件；" class="headerlink" title="第四部，安装显卡驱动、安装Steam 、安装steamVR套件；"></a>第四部，安装显卡驱动、安装Steam 、安装steamVR套件；</h3><h3 id="第五步，怎么实现Oculus-使用VD和电脑无线串流？"><a href="#第五步，怎么实现Oculus-使用VD和电脑无线串流？" class="headerlink" title="第五步，怎么实现Oculus 使用VD和电脑无线串流？"></a>第五步，怎么实现Oculus 使用VD和电脑无线串流？</h3><ol>
+<li>先开启oculus quest的开发者模式，使oculus能够用sidequest安装第三方apk<blockquote>
+<p><a href="https://www.huiziyuan.net/8143.html" target="_blank" rel="noopener">Oculus Quest 2从小白到进阶 – 完整使用教程 – 汇资源</a></p>
+</blockquote>
+</li>
+<li>在Quest2 应用商店购买正版的Virtual Desktop ，然后用sidequest安装Virtual desktop的串流插件apk。</li>
+<li>在Virtual Desktop官网里面下载PC的串流软件；<blockquote>
+<p><a href="https://www.vrdesktop.net/" target="_blank" rel="noopener">https://www.vrdesktop.net/</a></p>
+</blockquote>
+</li>
+<li>同一个wifi下面， 就可以实现链接电脑，实现无线串流了。</li>
+<li>quest上选择SteamVR的游戏，一键开启游戏吧。</li>
+</ol>
+<h2 id="使用感受"><a href="#使用感受" class="headerlink" title="使用感受"></a>使用感受</h2><h3 id="Oculus-quest2-高刷新率、高清运行"><a href="#Oculus-quest2-高刷新率、高清运行" class="headerlink" title="Oculus quest2 高刷新率、高清运行"></a>Oculus quest2 高刷新率、高清运行</h3><p>一切安装好后，在Oculus quest2上开启实验性能90hz刷新率，只要够快就能够把眼睛骗过去；</p>
+<h3 id="Steam-VR开启最高画质，顺畅运行；"><a href="#Steam-VR开启最高画质，顺畅运行；" class="headerlink" title="Steam VR开启最高画质，顺畅运行；"></a>Steam VR开启最高画质，顺畅运行；</h3><p>Bootcamp上win10 利用1070显卡性能，steamVR开启Half-life：alyx，开启最高画质顺畅运行；</p>
+<h3 id="稳定的无线串流，潇洒的无线串流PCVR体验"><a href="#稳定的无线串流，潇洒的无线串流PCVR体验" class="headerlink" title="稳定的无线串流，潇洒的无线串流PCVR体验"></a>稳定的无线串流，潇洒的无线串流PCVR体验</h3><p>以前看人家玩PCVR游戏都是拖着一堆设备，几米长的线拖在脑袋后面，几个铁架装着的手柄位置传感器、背着充电设备在玩，太不雅了。<br><strong>次世代VR体验已到来，最少的装备，潇洒玩起来。</strong></p>
+<h2 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h2><p>WintoGo大坑： <strong>Win to Go外置硬盘装win10</strong>，连接eGPU显卡来玩游戏。这个可以做一个很长的教程了，如果有人有兴趣我再出教程。顺利安装之后，VR游戏能启动half-life：Alyx，但是卡爆了，卡到我想吐；后来分析，应该是外置硬盘的4K读写速度没有内置硬盘那么高，虽然有雷电3传输的加持，但是有瓶颈的情况下，还是会整体速度的。在这里卡住我几乎要放弃了，后来重新再bootcamp安装win10解决了问题。提醒一下大家，要玩大型3A游戏，谨慎选择WintoGo 外置硬盘+eGpu模式。</p>
+<blockquote>
+<p><a href="https://vr-game.club/thread-510-1-1.html" target="_blank" rel="noopener">Oculus/VR新手入门指南</a><br><a href="https://shimo.im/docs/vC6ckJKRJQJ6gcKy/read" target="_blank" rel="noopener">Oculus离线包+SideQuest+ALVR</a></p>
+</blockquote>
+<p>#个人</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">Afazhou</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="/http:/afa.wiki/article/2020/11/9c26c249.html">http://afa.wiki/article/2020/11/9c26c249.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://afa.wiki">阿发的Wiki</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/mac/">mac    </a><a class="post-meta__tags" href="/tags/bootcamp/">bootcamp    </a><a class="post-meta__tags" href="/tags/oculus/">oculus    </a><a class="post-meta__tags" href="/tags/quest2/">quest2    </a><a class="post-meta__tags" href="/tags/VR/">VR    </a><a class="post-meta__tags" href="/tags/SteamVR/">SteamVR    </a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechatpay.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/article/2019/12/70f858e5.html"><img class="next_cover lazyload" data-src="http://images.weixinapp.cc/FtVmkcbjd-0Ra1QbgW1bcpMaM3x8" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/article/2019/12/1b4d3ed7.html" title="怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏"><img class="relatedPosts_cover lazyload"data-src="http://images.weixinapp.cc/Fk4Nu6y4VR0kVGHINrFFgYuDHKpz"><div class="relatedPosts_title">怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = true == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'Q7F0z1xKKYG8blyaAo4OIDkV-9Nh9j0Va',
+  appKey:'49kyEVeyIfn8Ho0s2rL5DHqD',
+  placeholder:'请留下你的足迹',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'zh-cn',
+  recordIP: true
+});</script></div></div></div><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2017 - 2020 By Afazhou</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
