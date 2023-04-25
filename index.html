@@ -1,111 +1,197 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>阿发的Wiki</title><meta name="description" content=""><meta name="keywords"><meta name="author" content="Afazhou"><meta name="copyright" content="Afazhou"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/favicon.jpg"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="阿发的Wiki"><meta name="twitter:description" content=""><meta name="twitter:image" content="http://afa.wiki/avatar.jpg"><meta property="og:type" content="website"><meta property="og:title" content="阿发的Wiki"><meta property="og:url" content="http://afa.wiki/"><meta property="og:site_name" content="阿发的Wiki"><meta property="og:description" content=""><meta property="og:image" content="http://afa.wiki/avatar.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'true'
-var t = Cookies.get("theme");
-if (autoChangeMode == '1'){
-const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-if (t === undefined){
-  if (isLightMode) activateLightMode()
-  else if (isDarkMode) activateDarkMode()
-  else if (isNotSpecified || hasNoSupport){
-    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-    now = new Date();
-    hour = now.getHours();
-    isNight = hour < 6 || hour >= 18
-    isNight ? activateDarkMode() : activateLightMode()
-}
-} else if (t == 'light') activateLightMode()
-else activateDarkMode()
-
-
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode() 
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
-
-function activateDarkMode(){
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
-  }
-}
-function activateLightMode(){
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
-  }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://afa.wiki/"><link rel="preload" href="https://api.dujin.org/bing/1920.php" as="image"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>阿发的Wiki</title><meta name="author" content="Afazhou"><meta name="copyright" content="Afazhou"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="阿发的Wiki">
+<meta property="og:url" content="http://afa.wiki/index.html">
+<meta property="og:site_name" content="阿发的Wiki">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://afa.wiki/avatar.jpg">
+<meta property="article:author" content="Afazhou">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://afa.wiki/avatar.jpg"><link rel="shortcut icon" href="/favicon.jpg"><link rel="canonical" href="http://afa.wiki/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"http://afa.wiki/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
-  highlight_copy: 'false',
-  highlight_lang: 'true',
-  highlight_shrink: 'false',
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
     noSupport: '浏览器不支持'
   },
-  bookmark: {
-    title: 'Snackbar.bookmark.title',
-    message_prev: '按',
-    message_next: '键将本页加入书签'
+  relativeDate: {
+    homepage: false,
+    post: false
   },
-  runtime_unit: '天',
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
   copyright: undefined,
-  copy_copyright_js: false,
-  ClickShowText: undefined,
-  medium_zoom: 'false',
-  Snackbar: undefined
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '阿发的Wiki',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-04-25 12:17:44'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-}</script></head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">阿发的Wiki</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div></span><span class="pull_right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">8</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">10</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">3</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div></div></div><div id="body-wrap"><nav class="full_page" id="nav"><div class="nav_bg" style="background-image: url(https://api.dujin.org/bing/1920.php)"></div><div id="site-info"><div id="site-title"><span class="blogtitle">阿发的Wiki</span></div><div id="site-sub-title"><span class="subtitle"></span></div><div id="site-social-icons"><a class="social-icon" href="https://www.weixinapp8.com" target="_blank"><i class="fa fa-link"></i></a><a class="social-icon" href="https://www.weixinapp8.com/xianchang" target="_blank"><i class="fa fa-laptop"></i></a><a class="social-icon" href="mailto:zyf@weixinapp.cc" target="_blank"><i class="fa fa-envelope"></i></a></div></div><div class="scroll-down"><i class="fa fa-angle-down scroll-down-effects"></i></div></nav><div id="content-outer"><div class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item article-container"><div class="post_cover pull_left left_radius"><a href="/article/2021/01/2a3ed2a.html" title="虚拟币的第一笔收入"><img class="post_bg lazyload" data-src="http://images.weixinapp.cc/FgtktQI99pROGZGK04VKke22p52s" onerror="onerror=null;src='/img/404.jpg'"></a></div><div class="recent-post-info">  <a class="article-title" href="/article/2021/01/2a3ed2a.html" title="虚拟币的第一笔收入">虚拟币的第一笔收入</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-20</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81/">比特币</a></span><div class="content">今天在台式机上安装了矿机，并开始了第一次以太坊挖矿之旅；矿池收入：0.00004584BTC特此纪念；🚀️
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://api.dujin.org/bing/1920.php')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">阿发的Wiki</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">阿发的Wiki</h1><div id="site_social_icons"><a class="social-icon" href="https://www.weixinapp.net" target="_blank" title=""><i class="fa fa-link"></i></a><a class="social-icon" href="mailto:zyf@weixinapp.cc" target="_blank" title=""><i class="fa fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/article/2022/12/b8c25521.html" title="ChatGPT教我如何用hexo在github搭建博客网站"><img class="post_bg" src="https://api.dujin.org/bing/1920.php" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ChatGPT教我如何用hexo在github搭建博客网站"></a></div><div class="recent-post-info"><a class="article-title" href="/article/2022/12/b8c25521.html" title="ChatGPT教我如何用hexo在github搭建博客网站">ChatGPT教我如何用hexo在github搭建博客网站</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-07T02:31:44.000Z" title="发表于 2022-12-07 10:31:44">2022-12-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%9C%89%E8%B6%A3/">有趣</a></span></div><div class="content">
+如何用hexo在github搭建博客网站？
+Hexo是一个快速、简洁且高效的博客框架。它可以让用户快速搭建自己的博客网站，并将其发布到GitHub上。要使用Hexo搭建博客网站，您需要先安装Node.js和Git。然后，您可以打开终端（在Windows系统中为命令提示符），并输入以下命令来安装Hexo：
+Copy codenpm install -g hexo-cli
 
 
-</div></div></div><div class="recent-post-item article-container"><div class="post_cover pull_right right_radius"><a href="/article/2020/11/9c26c249.html" title="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？"><img class="post_bg lazyload" data-src="http://images.weixinapp.cc/FlXYf6OGnziVoGHq6yrFeai8Dx3O" onerror="onerror=null;src='/img/404.jpg'"></a></div><div class="recent-post-info">  <a class="article-title" href="/article/2020/11/9c26c249.html" title="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？">入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-11-18</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/game/">game</a></span><div class="content">一、为什么要入手VR设备？双十一前，闲着刷即刻APP的我，突然看到有即友晒新入手的数码产品“Oculus quest2”，以前就听闻过oculus quest的大名，想不到现在出了第二代，而且价格比上一代还低，刷了视频博主、贴吧、知乎、微博关于oculus quest2的评价，无论从处理器、屏幕、软 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover pull_left left_radius"><a href="/article/2019/12/70f858e5.html" title="电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活"><img class="post_bg lazyload" data-src="http://images.weixinapp.cc/FtVmkcbjd-0Ra1QbgW1bcpMaM3x8" onerror="onerror=null;src='/img/404.jpg'"></a></div><div class="recent-post-info">  <a class="article-title" href="/article/2019/12/70f858e5.html" title="电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活">电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-25</time><div class="content">  两年前惊艳绝伦的AirPods发布，马上成为果粉手中最受欢迎的苹果设备，一下风靡全国。在一年的等待之后，一直自视为木耳不挑耳机的我也忍不住出手了。AirPods的无线体验简直是超级舒适。
-电池寿命有限沦为订阅制产品？  由于一体化的精妙设计，AirPods的电池被死死粘在硬壳里面，AirPods ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover pull_right right_radius"><a href="/article/2019/12/1b4d3ed7.html" title="怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏"><img class="post_bg lazyload" data-src="http://images.weixinapp.cc/Fk4Nu6y4VR0kVGHINrFFgYuDHKpz" onerror="onerror=null;src='/img/404.jpg'"></a></div><div class="recent-post-info">  <a class="article-title" href="/article/2019/12/1b4d3ed7.html" title="怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏">怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/game/">game</a></span><div class="content">前言在一台Mac电脑上面设置BootCamp 外置显卡，对于一部分人来说是即插即用的，但是对于不熟悉的人来说，可以是噩梦一场；最早的有雷电三代接口的Mac是只有集成显卡的，例如13寸的MacBook Pro、2018款Mac mini。有独立显卡的Mac电脑就会经常对系统提出更多的资源需求，而win ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover pull_left left_radius"><a href="/article/2019/12/9fb6d5e4.html" title="V2ray配置指南"><img class="post_bg lazyload" data-src="http://images.weixinapp.cc/FgW2qTOxdbJDV2auCUyhpXyrcxpz" onerror="onerror=null;src='/img/404.jpg'"></a></div><div class="recent-post-info">  <a class="article-title" href="/article/2019/12/9fb6d5e4.html" title="V2ray配置指南">V2ray配置指南</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-03</time><div class="content">
+安装完成后，您可以在您喜欢的目录下初始化Hexo博客：
+Copy codehexo init
 
-https://toutyrater.github.io/
 
-1.1. 声明V2Ray 配置指南（下称本指南）是网友自发编写的关于 V2Ray 如何配置及使用的指南，与 V2Ray 官方并无任何关系。尽管 V2Ray 厚爱将本指南的链接放到了其官网首页，这并不意味着本指南的建议或推荐为 V2Ra ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover pull_right right_radius"><a href="/article/2019/12/c512ed2.html" title="Windows 10 下遇到移动硬盘不自动分配盘符的问题"><img class="post_bg lazyload" data-src="http://images.weixinapp.cc/Fob5gOpRswJANCAbojRXSrUHsfRG" onerror="onerror=null;src='/img/404.jpg'"></a></div><div class="recent-post-info">  <a class="article-title" href="/article/2019/12/c512ed2.html" title="Windows 10 下遇到移动硬盘不自动分配盘符的问题">Windows 10 下遇到移动硬盘不自动分配盘符的问题</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-03</time><div class="content">简单来说就是某个移动硬盘不自动分配盘符，每次都要到磁盘管理里面手动分配盘符，而且每次删除设备后，手动分配的盘符不消失。一开始迁怒于 1809，众所周知这个版本 BUG 比较多，然而重装到 1803，问题依旧。
+这将在当前目录下创建一个名为“blog”的文件夹，并在其中生成博客的所有必要文件。接下来，您可以通过运行以下命令来启动Hexo服务器：
+Copy codehexo server
+
+
+这将启动Hexo服务器并打开博客的默认网址（http://localhost:4000）。您可以在浏览器中访问该网址，查看您的博客。
+接下来，您需要在GitHub上创建一个新的存储库，并将其关联到您的博客。具体来说，您需要在博客文件夹的根目录下创建一个名为“_config.yml”的配置文件，并在其中输入以下内容：
+Copy codedep ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/article/2020/11/9c26c249.html" title="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？"><img class="post_bg" src="http://images.weixinapp.cc/FlXYf6OGnziVoGHq6yrFeai8Dx3O" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？"></a></div><div class="recent-post-info"><a class="article-title" href="/article/2020/11/9c26c249.html" title="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？">入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-18T09:23:31.000Z" title="发表于 2020-11-18 17:23:31">2020-11-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/game/">game</a></span></div><div class="content">一、为什么要入手VR设备？双十一前，闲着刷即刻APP的我，突然看到有即友晒新入手的数码产品“Oculus quest2”，以前就听闻过oculus quest的大名，想不到现在出了第二代，而且价格比上一代还低，刷了视频博主、贴吧、知乎、微博关于oculus quest2的评价，无论从处理器、屏幕、软件、价格，各个方面综合起来最优秀、划算。一致评价为目前最值得入手的VR设备。心仪《 Half-life Alyx》大作很久玩不到的我，无脑的准备入手设备了。2020年第四季度，VR眼镜技术成熟可以入手了。
+二、怎么购买Oculus Quest2？Oculus早被Facebook收购，所以在国内发行是不太可能的，直接上美国亚马逊、日本亚马逊搜索对比，第一时间就入手了256G版的Oculus quest2；经过一个礼拜的漫长等待，DHL从美国经香港-进入广州海关的范围。这里要插一句，习惯了国内电商平台次日即达的超高速服务，不对比不知道再，等一个多礼拜才能拿到海淘产品是那么痛苦的。
+Oculus quest2到手之后，这才是一系列折腾的开始。
+三、购买这个VR眼镜我要实现目的：
+在quest2上单 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/article/2019/12/70f858e5.html" title="电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活"><img class="post_bg" src="http://images.weixinapp.cc/FtVmkcbjd-0Ra1QbgW1bcpMaM3x8" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活"></a></div><div class="recent-post-info"><a class="article-title" href="/article/2019/12/70f858e5.html" title="电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活">电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-12-25T13:02:47.000Z" title="发表于 2019-12-25 21:02:47">2019-12-25</time></span></div><div class="content">  两年前惊艳绝伦的AirPods发布，马上成为果粉手中最受欢迎的苹果设备，一下风靡全国。在一年的等待之后，一直自视为木耳不挑耳机的我也忍不住出手了。AirPods的无线体验简直是超级舒适。
+电池寿命有限沦为订阅制产品？  由于一体化的精妙设计，AirPods的电池被死死粘在硬壳里面，AirPods从诞生之日起，就面临着电池寿命的考验。随着日常使用的增加，锂电池寿命一日比一日的短。网友还开玩笑地将AirPods比喻为订阅制产品，一年订阅服务，次年再使用请再付款购买新耳机。
+Ifixit给出0分可修复性著名的测评组织拆解airpods之后，给出了0分可修复性的评价。意思是不可能修复；    &gt;  拆了AirPods全家也只给打出0分 是什么让iFixit如此丧心病狂
+万能的淘宝没什么难道勤劳智慧的国人，没有什么是万能的淘宝搞不掂的，一只耳机130元，两只耳机210元搞掂。还能保证不留痕迹。两个字评价：优秀！～
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/article/2019/12/1b4d3ed7.html" title="怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏"><img class="post_bg" src="http://images.weixinapp.cc/Fk4Nu6y4VR0kVGHINrFFgYuDHKpz" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏"></a></div><div class="recent-post-info"><a class="article-title" href="/article/2019/12/1b4d3ed7.html" title="怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏">怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-12-22T08:48:00.000Z" title="发表于 2019-12-22 16:48:00">2019-12-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/game/">game</a></span></div><div class="content">前言在一台Mac电脑上面设置BootCamp 外置显卡，对于一部分人来说是即插即用的，但是对于不熟悉的人来说，可以是噩梦一场；最早的有雷电三代接口的Mac是只有集成显卡的，例如13寸的MacBook Pro、2018款Mac mini。有独立显卡的Mac电脑就会经常对系统提出更多的资源需求，而windows经常不会顺从的，这种情况下就会经常出现Error12错误（资源不足），甚至在Boot Camp外置显卡启动windows的时候卡在启动界面，出现win logo就死机的情况。现在Apple官方支持外置显卡（macOS10.13.4之后）了，epgu.io的这个专题网站就做了很多努力来设置、维护一个可以使的外置显卡在Boot Camp win10正常使用的方法，发展几年以来，egpu的社区提供了很多解决方法，以下的设置指导是其中一部分的集合。
+
+显卡切换简要说一下在Windows系统里面的显卡切换；egpu.io论坛的成员sky11解释了在win10里面三种模式(AMD XConnect, Nvidia Optimus, and Microsoft Hybrid Graphics)。为 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/article/2019/12/c512ed2.html" title="Windows 10 下遇到移动硬盘不自动分配盘符的问题"><img class="post_bg" src="http://images.weixinapp.cc/Fob5gOpRswJANCAbojRXSrUHsfRG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows 10 下遇到移动硬盘不自动分配盘符的问题"></a></div><div class="recent-post-info"><a class="article-title" href="/article/2019/12/c512ed2.html" title="Windows 10 下遇到移动硬盘不自动分配盘符的问题">Windows 10 下遇到移动硬盘不自动分配盘符的问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-12-03T14:15:22.000Z" title="发表于 2019-12-03 22:15:22">2019-12-03</time></span></div><div class="content">简单来说就是某个移动硬盘不自动分配盘符，每次都要到磁盘管理里面手动分配盘符，而且每次删除设备后，手动分配的盘符不消失。一开始迁怒于 1809，众所周知这个版本 BUG 比较多，然而重装到 1803，问题依旧。
 在网上大量查阅中文资料，包括更新驱动、改注册表等，无解。最后用英文在外站找到解决方法了。
- ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover pull_left left_radius"><a href="/article/2017/12/8b4fb622.html" title="如何做需求分析"><img class="post_bg lazyload" data-src="http://images.weixinapp.cc/Fgo_8iMUTlBXT4TC8G9h1-c6edo_" onerror="onerror=null;src='/img/404.jpg'"></a></div><div class="recent-post-info">  <a class="article-title" href="/article/2017/12/8b4fb622.html" title="如何做需求分析">如何做需求分析</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-12-20</time><div class="content">
-产品的构思初期，我们会罗列尽可能多需求，也会收集到很多需求。但有些需求是伪需求，有些需求也不具备实现价值，那我们如何做判断呢？每天有无数产品诞生，也有无数产品陨落，很多时候会谈到一个原因，没有把握住用户需求，吸引不了用户。那如何把握住用户需求呢？各种各样的需求，如何毫无克制地加载功能去满足用户，最 ...</div></div></div><div class="recent-post-item article-container"><div class="post_cover pull_right right_radius"><a href="/article/2017/12/d83ab545.html" title="WordPress 和继承者们"><img class="post_bg lazyload" data-src="http://images.weixinapp.cc/FlRC6UqwXGBGfsjmeftqEQheCpYl" onerror="onerror=null;src='/img/404.jpg'"></a></div><div class="recent-post-info">  <a class="article-title" href="/article/2017/12/d83ab545.html" title="WordPress 和继承者们">WordPress 和继承者们</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-12-09</time><div class="content">
+1234567891、使用管理员启动 CMD2、输入 diskpart3、列出磁盘：list disk4、选择磁盘：select disk &lt;磁盘号&gt;5、列出分区：list part6、选择分区：select partition &lt;分区号&gt;7、检查磁盘分区属性：attributes volume8、检查是否有“ Hidden ”以及“ No Default Drive Letter ”属性9、清除这些属性：attributes volume clear NoDefaultDriveLetter、attributes volume clear hidden
+我的移动硬盘就是因为有个打开的“隐藏”属性所以才不会自动分配盘符，真不知道这属性是怎么自己打开的。无论如何，问题解 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/article/2017/12/8b4fb622.html" title="如何做需求分析"><img class="post_bg" src="http://images.weixinapp.cc/Fgo_8iMUTlBXT4TC8G9h1-c6edo_" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何做需求分析"></a></div><div class="recent-post-info"><a class="article-title" href="/article/2017/12/8b4fb622.html" title="如何做需求分析">如何做需求分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-12-20T15:46:00.000Z" title="发表于 2017-12-20 23:46:00">2017-12-20</time></span></div><div class="content">
+产品的构思初期，我们会罗列尽可能多需求，也会收集到很多需求。但有些需求是伪需求，有些需求也不具备实现价值，那我们如何做判断呢？每天有无数产品诞生，也有无数产品陨落，很多时候会谈到一个原因，没有把握住用户需求，吸引不了用户。那如何把握住用户需求呢？各种各样的需求，如何毫无克制地加载功能去满足用户，最终也会导致产品变得臃肿和失去核心定位。那怎么提炼呢？这也就是这篇文章的思考主题，我们如何做需求分析？
+
+1. 用户需求与产品需求
+用户需求是用户从自身角度出发，自以为的需求。  
+
+用户经常提出的需求，从他们角度而言都是正确的，但更多是从自身情况考虑，对于产品的某个功能有自己的期望，但对产品定位、设计的依据等情况不了解，他们的建议也许并不是该功能的最好实现方式，也就不足以直接作为产品规划的直接依据。
+
+产品需求是提炼分析用户真实需求，并符合产品定位的解决方案。  
+
+解决方案可以理解为一个产品，一个功能或服务，一个活动，一个机制。
+
+需求分析：从用户提出的需求出发，挖掘用户内心真正的目标，并转为为产品需求的过程。  
+
+我们不能简单地看用户需求，而是应该去挖掘用户产生这个需求时，其心里是什么 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/article/2017/12/d83ab545.html" title="WordPress 和继承者们"><img class="post_bg" src="http://images.weixinapp.cc/FlRC6UqwXGBGfsjmeftqEQheCpYl" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WordPress 和继承者们"></a></div><div class="recent-post-info"><a class="article-title" href="/article/2017/12/d83ab545.html" title="WordPress 和继承者们">WordPress 和继承者们</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2017-12-09T01:49:56.000Z" title="发表于 2017-12-09 09:49:56">2017-12-09</time></span></div><div class="content">
 
 本文原载于 Medium，作者是 Jason Gowans，这里是译文。
 
-不管从哪个角度看，WordPress 都是一个现象级的产品。全世界有四分之一的网站都跑在 WordPress 上，它占据了全部CMS市场59%的份额。WordPress 上超过四万的插件、一万以上的主题，这些共同打造了一 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card_widget card-author"><div class="card-content"><div class="post_data"><div class="data-item is_center"><img class="lazyload avatar_img" src="/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'"><p class="author-info__name is_center">Afazhou</p><p class="author-info__description is_center"></p></div></div><div class="post_data data_config"><div class="data-item is_center"><div class="data_link"><a href="/archives/"><p class="headline">文章</p><p class="length_num">8</p></a></div></div><div class="data-item is_center">      <div class="data_link"><a href="/tags/"><p class="headline">标签</p><p class="length_num">10</p></a></div></div><div class="data-item is_center">     <div class="data_link"><a href="/categories/"><p class="headline">分类</p><p class="length_num">3</p></a></div></div></div><div class="post_data is_center"><a class="data-item bookmark bookmarke--primary bookmark--animated" id="bookmark-it" href="javascript:;" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="post_data data_config"><div id="aside-social-icons"> <a class="social-icon data-item" href="https://www.weixinapp8.com" target="_blank"><i class="fa fa-link"></i></a><a class="social-icon data-item" href="https://www.weixinapp8.com/xianchang" target="_blank"><i class="fa fa-laptop"></i></a><a class="social-icon data-item" href="mailto:zyf@weixinapp.cc" target="_blank"><i class="fa fa-envelope"></i></a></div></div></div></div><div class="card_widget card-announcement"><div class="card-content"><div class="item_headline"><i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i><span>公告</span></div><div class="announcement_content">感謝訪問本站，若喜歡請收藏 ^_^</div></div></div><div class="card_widget card-recent-post"><div class="card-content"><div class="item_headline"><i class="fa fa-history" aria-hidden="true"></i><span>最新文章</span></div><div class="aside_recent_item"><div class="aside_recent_post"><a href="/article/2021/01/2a3ed2a.html"><div class="aside_post_cover"><img class="aside_post_bg lazyload" data-src="http://images.weixinapp.cc/FgtktQI99pROGZGK04VKke22p52s" onerror="onerror=null;src='/img/404.jpg'" title="虚拟币的第一笔收入"></div><div id="aside_title"><div class="aside_post_title" href="/article/2021/01/2a3ed2a.html" title="虚拟币的第一笔收入">虚拟币的第一笔收入</div><time class="aside_post_meta post-meta__date">2021-01-20</time></div></a></div><div class="aside_recent_post"><a href="/article/2020/11/9c26c249.html"><div class="aside_post_cover"><img class="aside_post_bg lazyload" data-src="http://images.weixinapp.cc/FlXYf6OGnziVoGHq6yrFeai8Dx3O" onerror="onerror=null;src='/img/404.jpg'" title="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？"></div><div id="aside_title"><div class="aside_post_title" href="/article/2020/11/9c26c249.html" title="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？">入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？</div><time class="aside_post_meta post-meta__date">2020-11-18</time></div></a></div><div class="aside_recent_post"><a href="/article/2019/12/70f858e5.html"><div class="aside_post_cover"><img class="aside_post_bg lazyload" data-src="http://images.weixinapp.cc/FtVmkcbjd-0Ra1QbgW1bcpMaM3x8" onerror="onerror=null;src='/img/404.jpg'" title="电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活"></div><div id="aside_title"><div class="aside_post_title" href="/article/2019/12/70f858e5.html" title="电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活">电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活</div><time class="aside_post_meta post-meta__date">2019-12-25</time></div></a></div><div class="aside_recent_post"><a href="/article/2019/12/1b4d3ed7.html"><div class="aside_post_cover"><img class="aside_post_bg lazyload" data-src="http://images.weixinapp.cc/Fk4Nu6y4VR0kVGHINrFFgYuDHKpz" onerror="onerror=null;src='/img/404.jpg'" title="怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏"></div><div id="aside_title"><div class="aside_post_title" href="/article/2019/12/1b4d3ed7.html" title="怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏">怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏</div><time class="aside_post_meta post-meta__date">2019-12-22</time></div></a></div><div class="aside_recent_post"><a href="/article/2019/12/9fb6d5e4.html"><div class="aside_post_cover"><img class="aside_post_bg lazyload" data-src="http://images.weixinapp.cc/FgW2qTOxdbJDV2auCUyhpXyrcxpz" onerror="onerror=null;src='/img/404.jpg'" title="V2ray配置指南"></div><div id="aside_title"><div class="aside_post_title" href="/article/2019/12/9fb6d5e4.html" title="V2ray配置指南">V2ray配置指南</div><time class="aside_post_meta post-meta__date">2019-12-03</time></div></a></div></div></div></div><div class="card_widget card-categories"><div class="card-content"><div class="item_headline"><i class="fa fa-folder-open" aria-hidden="true"></i><span>分类</span></div><ul class="aside_category_item">       <li class="aside_category_list"><a class="aside_category_list_link" href="/categories/game/"><span class="aside_category_list_name">game</span><span class="aside_category_list_length">2</span></a></li><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"><span class="aside_category_list_name">区块链</span><span class="aside_category_list_length">1</span></a></li><ul class="aside_category_item child"><li class="aside_category_list"><a class="aside_category_list_link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81/"><span class="aside_category_list_name">比特币</span><span class="aside_category_list_length">1</span></a></li></ul></ul></div></div><div class="card_widget card-tags"><div class="card-content"><div class="item_headline"><i class="fa fa-tags" aria-hidden="true"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/SteamVR/" style="font-size: 16px; color: #999">SteamVR</a> <a href="/tags/VR/" style="font-size: 16px; color: #999">VR</a> <a href="/tags/bootcamp/" style="font-size: 20px; color: #4d4d4d">bootcamp</a> <a href="/tags/epgu/" style="font-size: 16px; color: #999">epgu</a> <a href="/tags/mac/" style="font-size: 20px; color: #4d4d4d">mac</a> <a href="/tags/oculus/" style="font-size: 16px; color: #999">oculus</a> <a href="/tags/quest2/" style="font-size: 16px; color: #999">quest2</a> <a href="/tags/%E4%BA%A7%E5%93%81/" style="font-size: 20px; color: #4d4d4d">产品</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 16px; color: #999">区块链</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 24px; color: #000">工具</a></div></div></div><div class="card_widget card-archives"><div class="card-content"><div class="item_headline"><i class="fa fa-archive" aria-hidden="true"></i><span>归档</span></div><div class="archives_item"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">2021年01月<span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">2020年11月<span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">2019年12月<span class="archive-list-count">4</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">2017年12月<span class="archive-list-count">2</span></a></li></ul></div></div></div><div class="card_widget card-webinfo"><div class="card-content"><div class="item_headline"><i class="fa fa-line-chart" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo_item"><div class="webinfo_article_name">文章数目 :</div><div class="webinfo_article_count">8</div></div><div class="webinfo_item"><div class="webinfo_runtime_name">已运行时间 :</div><div class="webinfo_runtime_count" id="webinfo_runtime_count"></div><script id="runtionshow" src="/js/runtimeshow.js" start_date="6/7/2018 00:00:00">      </script></div><div class="webinfo_item">      <div class="webinfo_site_uv_name">本站访客数 :</div><div class="webinfo_site_uv_count" id="busuanzi_value_site_uv"></div></div><div class="webinfo_item"><div class="webinfo_site_name">本站总访问量 :</div><div class="webinfo_site_pv_count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></div></div><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2017 - 2021 By Afazhou</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
-</script><script>if (/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {} else {
-  $('.full_page .nav_bg').css('background-attachment', 'fixed');
-}
+不管从哪个角度看，WordPress 都是一个现象级的产品。全世界有四分之一的网站都跑在 WordPress 上，它占据了全部CMS市场59%的份额。WordPress 上超过四万的插件、一万以上的主题，这些共同打造了一个无与伦比的生态系统，这里有超过十万的开发者和上千家主机提供商，其中专注于 WordPress 主机服务的 WPEngine 融资4100万美金，在他们的服务器上跑了20多万个网站，服务了超过23,000的用户。
 
-</script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var typed = new Typed(".subtitle", {
-strings: '今日事&#44;今日畢,Never put off till tomorrow what you can do today'.split(","),
-startDelay: 300,
-typeSpeed: 100,
-loop: true,
-backSpeed: 50
-});
-</script><script>//首頁fullpage
-function alignContent() {
-  for (var n = $(window).height(), e = document.querySelectorAll(".full_page"), i = 0; i < e.length; i++) 
-    e[i].style.height = n + "px";
-    $("#site-info").each(function () {
-      var x = $(this).height();
-      $(this).css("top", (n-x)/2)       
-    })
-}
-alignContent();
-
-$(window).bind("resize", function () {
-  alignContent()
-})</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
+WordPress.com 有不计其数的盈利手段，比如说主机、谷歌广告、主题购买、高级会员服务、技术支持、定向流量、保险库、视频发布等等。然而，这么一个巨无霸，他们的消费者加起来比冰岛人口还多，说它以后再也不能继续统治这个市场，有人会信吗？##那些个竞争对手下面这张表单上，你可以看到像 Squarespace 这样的公司，虽然只有可怜的0.4%市场份额，市值却达到了5亿美金。Automattic 和 Wix 也在这份表单上叨陪末座，所以我相信情况一定会有所变化。比如 Github ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Afazhou</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://www.weixinapp.net" target="_blank" title=""><i class="fa fa-link"></i></a><a class="social-icon" href="mailto:zyf@weixinapp.cc" target="_blank" title=""><i class="fa fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/2022/12/b8c25521.html" title="ChatGPT教我如何用hexo在github搭建博客网站"><img src="https://api.dujin.org/bing/1920.php" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ChatGPT教我如何用hexo在github搭建博客网站"/></a><div class="content"><a class="title" href="/article/2022/12/b8c25521.html" title="ChatGPT教我如何用hexo在github搭建博客网站">ChatGPT教我如何用hexo在github搭建博客网站</a><time datetime="2022-12-07T02:31:44.000Z" title="发表于 2022-12-07 10:31:44">2022-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2020/11/9c26c249.html" title="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？"><img src="http://images.weixinapp.cc/FlXYf6OGnziVoGHq6yrFeai8Dx3O" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？"/></a><div class="content"><a class="title" href="/article/2020/11/9c26c249.html" title="入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？">入手Oculus quest2，怎么用MacBook Pro+外置显卡畅玩SteamVR 3A游戏？</a><time datetime="2020-11-18T09:23:31.000Z" title="发表于 2020-11-18 17:23:31">2020-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2019/12/70f858e5.html" title="电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活"><img src="http://images.weixinapp.cc/FtVmkcbjd-0Ra1QbgW1bcpMaM3x8" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活"/></a><div class="content"><a class="title" href="/article/2019/12/70f858e5.html" title="电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活">电池用坏的AirPods不要扔，淘宝上大师傅半小时更换电池满血复活</a><time datetime="2019-12-25T13:02:47.000Z" title="发表于 2019-12-25 21:02:47">2019-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2019/12/1b4d3ed7.html" title="怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏"><img src="http://images.weixinapp.cc/Fk4Nu6y4VR0kVGHINrFFgYuDHKpz" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏"/></a><div class="content"><a class="title" href="/article/2019/12/1b4d3ed7.html" title="怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏">怎么用Mac电脑玩游戏？手把手教你在Boot Camp使用外置显卡玩大型3D游戏</a><time datetime="2019-12-22T08:48:00.000Z" title="发表于 2019-12-22 16:48:00">2019-12-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2019/12/c512ed2.html" title="Windows 10 下遇到移动硬盘不自动分配盘符的问题"><img src="http://images.weixinapp.cc/Fob5gOpRswJANCAbojRXSrUHsfRG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows 10 下遇到移动硬盘不自动分配盘符的问题"/></a><div class="content"><a class="title" href="/article/2019/12/c512ed2.html" title="Windows 10 下遇到移动硬盘不自动分配盘符的问题">Windows 10 下遇到移动硬盘不自动分配盘符的问题</a><time datetime="2019-12-03T14:15:22.000Z" title="发表于 2019-12-03 22:15:22">2019-12-03</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/game/"><span class="card-category-list-name">game</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%9C%89%E8%B6%A3/"><span class="card-category-list-name">有趣</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 1.1em; color: #999">AI</a> <a href="/tags/SteamVR/" style="font-size: 1.1em; color: #999">SteamVR</a> <a href="/tags/VR/" style="font-size: 1.1em; color: #999">VR</a> <a href="/tags/bootcamp/" style="font-size: 1.3em; color: #99a1ac">bootcamp</a> <a href="/tags/epgu/" style="font-size: 1.1em; color: #999">epgu</a> <a href="/tags/mac/" style="font-size: 1.3em; color: #99a1ac">mac</a> <a href="/tags/oculus/" style="font-size: 1.1em; color: #999">oculus</a> <a href="/tags/quest2/" style="font-size: 1.1em; color: #999">quest2</a> <a href="/tags/%E4%BA%A7%E5%93%81/" style="font-size: 1.3em; color: #99a1ac">产品</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">工具</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/12/"><span class="card-archive-list-date">十二月 2017</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">7</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-04-25T04:17:44.527Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Afazhou</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
